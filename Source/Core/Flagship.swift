@@ -138,7 +138,7 @@ public class Flagship:NSObject{
      @param pBlock The block to be invoked when sdk is ready
      */
     
-    @available(iOS, introduced: 1.0.0, deprecated: 1.2.0, message: "Use start(environmentId:String, _ customVisitorId:String?,_ mode:FlagShipMode, completionHandler:@escaping(FlagShipResult)->Void)")
+    @available(iOS, introduced: 1.0.0, deprecated: 1.2.0, message: "start(environmentId:String, _ visitorId:String?, _ mode:FlagshipMode, apacRegion:FSRegion? = nil, completionHandler:@escaping(FlagshipResult)->Void)")
     @objc public func startFlagShip(environmentId:String, _ visitorId:String?, completionHandler:@escaping(FlagshipResult)->Void){
         
         // Checkc the environmentId
@@ -213,6 +213,13 @@ public class Flagship:NSObject{
                 completionHandler(FlagshipResult.NotReady)
             }
         }
+        
+        /// Send the keys/values context
+        DispatchQueue(label: "flagship.contextKey.queue").async {
+            
+            self.service?.sendkeyValueContext(self.context.currentContext)
+        }
+        
         
         // Purge data event
         DispatchQueue(label: "flagShip.FlushStoredEvents.queue").async(execute:DispatchWorkItem {

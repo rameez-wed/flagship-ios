@@ -133,7 +133,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /// Send KPI  "parrainage_kpi" when click on parrainage button
     @IBAction func onClikcParrainage(){
         
-        Flagship.sharedInstance.sendHit(FSEvent(eventCategory: .Action_Tracking, eventAction: "june_parainage_23"))
+        Flagship.sharedInstance.sendHit(FSEvent(eventCategory: .Action_Tracking, eventAction: "july_parainage"))
     }
     
     
@@ -142,7 +142,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func onClikcButton(){
         
-        let event = FSEvent(eventCategory: .User_Engagement, eventAction: "june_jeans_23")
+        let event = FSEvent(eventCategory: .User_Engagement, eventAction: "july_Engagement")
         event.label = "mainProduct"
         event.eventValue = 1
         event.sessionNumber = 1
@@ -159,7 +159,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
           
            // Create event for CTA Action
            // The event action you give here is the name who should be displayed on the report
-           let actionEvent:FSEvent = FSEvent(eventCategory: FSCategoryEvent.Action_Tracking, eventAction: "ctx_event1105")
+           let actionEvent:FSEvent = FSEvent(eventCategory: FSCategoryEvent.Action_Tracking, eventAction: "july_Action")
            actionEvent.label = "ctx_event1105_label"
            actionEvent.eventValue = 1
            actionEvent.interfaceName = "HomeScreen"

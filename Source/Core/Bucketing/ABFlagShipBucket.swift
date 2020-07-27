@@ -38,7 +38,7 @@ import Foundation
     
     @objc public  func start(environmentId:String, _ visitorId:String?, _ mode:FlagshipMode, apacRegion:FSRegion? = nil, completionHandler:@escaping(FlagshipResult)->Void){
         
-        // Checkc the environmentId
+        // Check the environmentId
         if (FSTools.chekcXidEnvironment(environmentId)){
             
             self.environmentId = environmentId
@@ -82,8 +82,8 @@ import Foundation
         // set mode running
         self.sdkModeRunning = mode
         
-        
         switch self.sdkModeRunning {
+            
         case .BUCKETING:
             
             self.service?.getFSScript { (scriptBucket, error) in
@@ -96,7 +96,7 @@ import Foundation
                     /// Read from cache the bucket script
                     guard let cachedBucket:FSBucket =  self.service?.cacheManager.readBucketFromCache() else{
                         
-                        // Exit the start with not ready state
+                        // Exit the start with NOT ready state
                         FSLogger.FSlog("No cached script available",.Campaign)
                         completionHandler(.NotReady)
                         return
@@ -113,7 +113,7 @@ import Foundation
                 self.context.updateModification(self.campaigns)
                 
                 
-                /// Call back with Ready state
+                /// Callback with Ready state
                 completionHandler(.Ready)
             }
             
@@ -154,10 +154,18 @@ import Foundation
              }
             break
         }
-         // Purge data event
-         DispatchQueue(label: "flagShip.FlushStoredEvents.queue").async(execute:DispatchWorkItem {
+        
+        /// Send the keys/values context
+        DispatchQueue(label: "flagship.contextKey.queue").async {
+            
+            self.service?.sendkeyValueContext(self.context.currentContext)
+        }
+        
+        // Purge data event
+        DispatchQueue(label: "flagShip.FlushStoredEvents.queue").async(execute:DispatchWorkItem {
+            
             self.service?.threadSafeOffline.flushStoredEvents()
-         })
+        })
      }
     
     
