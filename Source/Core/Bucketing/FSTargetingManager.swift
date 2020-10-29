@@ -77,7 +77,7 @@ class FSTargetingManager: NSObject {
     
     internal func checkTargetingForList(currentValue:Any?, opType:FSoperator, listAudience:Any?)->Bool{
         
-        /// Chekc th type list before
+        /// Chekc the type list before
             var isOkay:Bool = false
             var result:Int = 0
             
@@ -86,18 +86,18 @@ class FSTargetingManager: NSObject {
                 for subAudienceValue in values  {
                     
                     isOkay  = checkCondition(currentValue as Any, opType , subAudienceValue as Any)
-                    
+                    /// For those operator, we use  --- OR ---
                     if (opType == .CONTAINS || opType == .EQUAL){
                         
                         if(isOkay){
-                            
+                            /// At least one condition in the liste is valide ==> return true.
                             return true
                             
                         }else{
-                            
+                            /// Set result == 1 to return false, in case when all condition on the liste are not valide
                             result = 1
                         }
-                        
+                        /// For those operator, we use  --- AND ---
                     }else if (opType == .NOT_EQUAL || opType == .NOT_CONTAINS){
                         
                         result += isOkay ? 0 : 1
