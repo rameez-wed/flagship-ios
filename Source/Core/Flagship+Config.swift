@@ -33,7 +33,9 @@ import Foundation
         
         /// Manage visitor id
          do {
-             self.visitorId =  try FSTools.manageVisitorId(visitorId)
+            
+            self.visitorId =  try FSTools.manageVisitorId(visitorId)
+            self.service?.visitorId  = self.visitorId //// refractor this 
              
          }catch{
              
