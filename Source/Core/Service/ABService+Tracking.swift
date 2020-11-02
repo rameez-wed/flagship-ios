@@ -70,4 +70,80 @@ internal extension ABService{
         
     }
     
+    
+    
+    
+    //// Tempo ....
+    
+    //magicUserEndPoint
+    
+    
+    func magikUserConsolidation(_ userName:String,  onGetResponse:@escaping(FSConsolidation?, FlagshipError?)->Void){
+        
+        do {
+            
+            let params:NSMutableDictionary = ["username":userName , "deviceId":FSGenerator.getFlagShipIdInCache() ?? ""]
+            
+            
+            print(" !!!!!!!!!!!!!!!!! ......About to send the username with generated id \(params) !!!!!!!!!!!!!!!!!!!")
+            
+            let data = try JSONSerialization.data(withJSONObject: params, options:[])
+            
+             if let getUrl = URL(string: String(format: magikUserEndPoint)){
+                
+                var request:URLRequest = URLRequest(url:getUrl, timeoutInterval: timeOutServiceForRequestApi)  //// Request with time interval
+                request.httpMethod = "POST"
+                request.httpBody = data
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                sessionService.dataTask(with: request) { (responseData, response, error) in
+                    
+                    if (error == nil){
+                        
+                        let httpResponse = response as? HTTPURLResponse
+                        switch (httpResponse?.statusCode){
+                        case 200:
+                            
+                            if let aResponseData = responseData {
+                                
+                                do {
+                                    
+                                    let decoder = JSONDecoder()
+                                    let objectDecoded = try decoder.decode(FSConsolidation.self, from: aResponseData)
+                                    
+                                    // Print Json response
+                                    let dico = try JSONSerialization.jsonObject(with: aResponseData, options: .allowFragments)
+                                    
+                                    
+                                    print(" !!!!!!!!!!! Get the response from coso sever \(dico) !!!!!!!!!!!!!!!!!!!!")
+                                    
+                                    onGetResponse(objectDecoded, nil)
+                      
+                                } catch {
+                                    
+                                    onGetResponse(nil, FlagshipError.GetCampaignError)
+                                }
+                            }else{
+                                
+                                onGetResponse(nil, FlagshipError.GetCampaignError)
+                            }
+                            break
+                        default:
+                            onGetResponse(nil, FlagshipError.GetCampaignError)
+                        }
+                    }else{
+                        
+                        onGetResponse(nil, FlagshipError.NetworkError)
+                    }
+                    
+                    }.resume()
+            }
+        }catch{
+            
+            FSLogger.FSlog("error on serializing json", .Network)
+        }
+        
+    }
 }
+
+

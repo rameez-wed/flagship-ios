@@ -274,18 +274,24 @@ public class Flagship:NSObject{
      */
     @objc public func getModification(_ key:String, defaultBool:Bool, activate:Bool = false) -> Bool {
         
-        // Check if disabled
-        if disabledSdk{
-            FSLogger.FSlog("The Sdk is disabled ... will return a default value", .Campaign)
+        do {
+            return try internalGetModification(key, defaultBool, activate) as? Bool ?? defaultBool
+        }catch{
             return defaultBool
         }
-        
-        if activate && self.campaigns != nil{
-            // Activate
-            self.service?.activateCampaignRelativetoKey(key,self.campaigns)
-        }
-        
-        return context.readBooleanFromContext(key, defaultBool: defaultBool)
+       
+//        // Check if disabled
+//        if disabledSdk{
+//            FSLogger.FSlog("The Sdk is disabled ... will return a default value", .Campaign)
+//            return defaultBool
+//        }
+//
+//        if activate && self.campaigns != nil{
+//            // Activate
+//            self.service?.activateCampaignRelativetoKey(key,self.campaigns)
+//        }
+//
+//        return context.readBooleanFromContext(key, defaultBool: defaultBool)
     }
     
     
@@ -386,7 +392,6 @@ public class Flagship:NSObject{
      */
     @objc public func getModification(_ key:String, defaultInt:Int, activate:Bool = false) -> Int{
         
-        
         if disabledSdk{
             FSLogger.FSlog("The Sdk is disabled ... will return a default value ", .Campaign)
             return defaultInt
@@ -446,19 +451,99 @@ public class Flagship:NSObject{
      */
     @objc public func getModification(_ key:String, defaultJson:Dictionary<String,Any>, activate:Bool = false) ->Dictionary<String,Any>{
         
+         do {
+            
+            return try internalGetModification(key, defaultJson, activate) as! Dictionary<String,Any>
+            
+         }catch{
+            
+            return defaultJson
+         }
+        
+        
+        
+//        if disabledSdk{
+//            FSLogger.FSlog("The Sdk is disabled ... will return a default value ", .Campaign)
+//            return defaultJson
+//        }
+//
+//        if activate && self.campaigns != nil {
+//
+//            self.service?.activateCampaignRelativetoKey(key,self.campaigns)
+//        }
+//
+//        return self.context.readJsonObjectFromContext(key, defaultDico: defaultJson)
+        
+    }
+    
+    
+    
+    //// Tempo
+    
+    private func internalGetModification(_ key:String, _ defaultValue:Any, _ activate:Bool = false) throws -> Any{
+        
         if disabledSdk{
             FSLogger.FSlog("The Sdk is disabled ... will return a default value ", .Campaign)
-            return defaultJson
-        }
-        
-        if activate && self.campaigns != nil {
+            return defaultValue
             
+        }
+        if activate && self.campaigns != nil {
+        
             self.service?.activateCampaignRelativetoKey(key,self.campaigns)
         }
         
-        return self.context.readJsonObjectFromContext(key, defaultDico: defaultJson)
-        
+        if (defaultValue is Int){
+            
+            return context.readIntFromContext(key, defaultInt: defaultValue as! Int)
+
+        }else if (defaultValue is Double){
+            
+            return context.readDoubleFromContext(key, defaultDouble: defaultValue as! Double)
+            
+        }else if (defaultValue is String){
+            
+            return context.readStringFromContext(key, defaultString: defaultValue as! String)
+            
+        }else if (defaultValue is Bool){
+            
+            return context.readBooleanFromContext(key, defaultBool: defaultValue as! Bool)
+            
+        }else if (defaultValue is Dictionary<String,Any> ){
+            
+            return context.readJsonObjectFromContext(key, defaultDico: defaultValue as! Dictionary<String,Any> )
+            
+        }else if (defaultValue is [Any]){
+            
+            return context.readArrayFromContext(key, defaultArray: defaultValue as! [Any])
+        }else{
+            
+            throw NSError()
+        }
     }
+    
+    
+    
+    /// Consolidation function
+    
+    public func consolidateUser(_ user:String , OnConsolidationisDone:@escaping(String?, FlagshipResult?)->Void){
+        
+        /// send user and fs_userId
+        self.service?.magikUserConsolidation(user, onGetResponse: { (resultObject, error) in
+            
+            
+            if (error == nil){
+                
+                OnConsolidationisDone(resultObject?.initialDeviceId, nil)
+                
+            }else{
+                
+                OnConsolidationisDone(nil, .NotReady)
+            }
+        })
+    }
+    
+    
+    //// End tempo
     
     
     /*
@@ -521,10 +606,7 @@ public class Flagship:NSObject{
     }
     
     
-    
-    
-    
-    
+ 
     
     /// For Objective C Project, use the functions below to send Events
     /// See https://developers.flagship.io/ios/#hit-tracking

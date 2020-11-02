@@ -106,6 +106,15 @@
               "gmail.com",
               "mail.com"
             ]
+          },
+        {
+            "operator": "CONTAINS",
+            "key": "testkey9",
+            "value": [
+              12,
+              13,
+              14
+            ]
           }
         ]
       }

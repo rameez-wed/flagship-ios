@@ -167,15 +167,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /// Send KPI  "parrainage_kpi" when click on parrainage button
     @IBAction func onClikcParrainage(){
         
-        Flagship.sharedInstance.sendHit(FSEvent(eventCategory: .Action_Tracking, eventAction: "kpi_v2"))
+//        Flagship.sharedInstance.sendHit(FSEvent(eventCategory: .Action_Tracking, eventAction: "kpi_v2"))
+//        
+//        Flagship.sharedInstance.sendHit(FSEvent(eventCategory: .User_Engagement, eventAction: "kpi_v2_Engagemen"))
+//
+//        Flagship.sharedInstance.sendHit(FSTransaction(transactionId: "idV2", affiliation: "kpi_v2_TRansaction"))
+//        
+//        Flagship.sharedInstance.sendHit(FSItem(transactionId: "idV2", name: "itemV2", code: "sku"))
+//        
+//        Flagship.sharedInstance.sendHit(FSPage("interfaceV2"))
         
-        Flagship.sharedInstance.sendHit(FSEvent(eventCategory: .User_Engagement, eventAction: "kpi_v2_Engagemen"))
-
-        Flagship.sharedInstance.sendHit(FSTransaction(transactionId: "idV2", affiliation: "kpi_v2_TRansaction"))
         
-        Flagship.sharedInstance.sendHit(FSItem(transactionId: "idV2", name: "itemV2", code: "sku"))
         
-        Flagship.sharedInstance.sendHit(FSPage("interfaceV2"))
+        Flagship.sharedInstance.consolidateUser("usser10") { (intial, result) in
+            
+            print(intial)
+            
+            print("ouups")
+        }
+        
 
 
     }

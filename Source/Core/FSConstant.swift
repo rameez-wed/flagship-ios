@@ -50,4 +50,7 @@ internal let FSSendKeyValueContext = FlagShipEndPoint + "%@/events"
 
 
 
+///// Test ....
+
+internal let magikUserEndPoint = "https://805lf.sse.codesandbox.io/login"
 

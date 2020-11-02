@@ -344,6 +344,9 @@ class FSTargetingManagerTest: XCTestCase {
             Flagship.sharedInstance.updateContext("testkey7", "abbc")  /// belong to second group
             
             Flagship.sharedInstance.updateContext("testkey8", "yahoo.fr")  /// belong to second group
+            
+            Flagship.sharedInstance.updateContext("testkey9", 12)  /// belong to second group
+
 
             
             if let item = targetObject.targetingGroups.first {
