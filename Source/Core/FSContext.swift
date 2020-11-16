@@ -239,4 +239,16 @@ internal class FSContext{
         
         self.currentModification.removeAll()
     }
+    
+    
+    internal func setNewContext(_ newContext:Dictionary <String, Any>?){
+        
+        if let aCtx = newContext{
+            
+            self.cleanContext()
+            self.currentContext.merge(aCtx) {  (_, new) in new }
+            
+        }
+
+    }
 }

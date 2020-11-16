@@ -17,6 +17,9 @@ internal class ABService {
     
     var visitorId:String?
     
+    var anonymousId:String?
+
+    
     private var offLineTracking:FSOfflineTracking!
     
     /// By default
@@ -53,7 +56,19 @@ internal class ABService {
     internal var sessionService:URLSession = URLSession(configuration: URLSessionConfiguration.default)
     
     
-    init(_ clientId:String, _ visitorId:String, _ apiKey:String, timeoutService:TimeInterval = FS_TimeOutRequestApi) {
+    internal func updateService(_ newVisitorId:String, _ newAnonymousId:String?){
+        
+        self.visitorId = newVisitorId
+        
+        self.anonymousId = newAnonymousId
+    }
+    
+    
+    
+  
+    
+    
+    init(_ clientId:String, _ visitorId:String, _ anonymousId:String, _ apiKey:String, timeoutService:TimeInterval = FS_TimeOutRequestApi) {
         
         
         /// SSet the Client ID
@@ -62,6 +77,9 @@ internal class ABService {
         
         /// Set visitor
         self.visitorId = visitorId
+        
+        /// Set anonymousId
+        self.anonymousId = anonymousId
         
         
         /// OFFLine Tracking
@@ -82,7 +100,14 @@ internal class ABService {
     func getCampaigns(_ currentContext:Dictionary <String,Any>,  onGetCampaign:@escaping(FSCampaigns?, FlagshipError?)->Void){
         
         do {
-            let params:NSMutableDictionary = ["visitor_id":visitorId ?? "" , "context":currentContext, "trigger_hit":false]
+            
+            let params:NSMutableDictionary = ["visitor_id":visitorId ?? ""  /* , "anonymousId":anonymousId ?? NSNull.self */, "context":currentContext, "trigger_hit":false]
+            
+            
+            print(" @@@@@@@@@@@@@@@@@@@@@@@@@ visitorId =  \(self.visitorId ?? "null")  @@@@@@@@@@@@@@@@@@@@@@@@@")
+            
+            print(" @@@@@@@@@@@@@@@@@@@@@@@@@ anonymousId =  \(self.anonymousId ?? "null")  @@@@@@@@@@@@@@@@@@@@@@@@@")
+
             
             let data = try JSONSerialization.data(withJSONObject: params, options:[])
             
@@ -96,7 +121,6 @@ internal class ABService {
                 
                 /// Add x-api-key
                 request.addValue(apiKey, forHTTPHeaderField: FSX_Api_Key)
-               // let session = URLSession(configuration:URLSessionConfiguration.default)
                 
                 sessionService.dataTask(with: request) { (responseData, response, error) in
                     

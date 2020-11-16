@@ -16,10 +16,13 @@ public let FS_TimeOutRequestApi = 2.0
 @objc public class FSConfig:NSObject{
     
     /// The timeOut, default will use the system value
-    public let flagshipTimeOutRequestApi:TimeInterval
+    public var flagshipTimeOutRequestApi:TimeInterval
     
     /// Mode of Flagship uses
-    public let mode:FlagshipMode
+    public var mode:FlagshipMode
+    
+    
+    public var authenticated:Bool = true
     
     
     

@@ -44,29 +44,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        /// Create object configuration
-//        let fsConfig = FSConfig(.DECISION_API, apiTimeout: 0.2)
-//        
-//        /// Start the SDK
-//        Flagship.sharedInstance.start(envId:"your envId", apiKey: "your apiKey", visitorId:"visitorId", config:fsConfig){ (result) in
-//            
-//            if result == .Ready {
-//              DispatchQueue.main.async {
-//
-//                /// Update UI
-//              }
-//
-//              }else{
-//
-//                /// An error occurs or the SDK is disabled
-//              }
-//        }
-//        
-  
-        
-        
-        
          parrainageBtn.isHidden = false
         
         /// Get Color for background defined in dashboard flagship
@@ -145,6 +122,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func onCancel(){
         self.dismiss(animated: true , completion: nil)
+        
+        Flagship.sharedInstance.unAuthenticateVisitor { (result) in
+            
+            
+        }
     }
     
     /// Display Feature 1

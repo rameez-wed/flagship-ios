@@ -81,6 +81,7 @@
 		8BBCAD3523FAD0E200126600 /* FSTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55835723E04243005D0AB5 /* FSTools.swift */; };
 		8BBCAD3623FAD0E200126600 /* murmurhash3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCAD0F23FAA1B300126600 /* murmurhash3.swift */; };
 		8BE28A5324FDB577004C9E05 /* FSDeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE28A5224FDB577004C9E05 /* FSDeviceTest.swift */; };
+		8BFBE9D5255D7DA500E73CAE /* Flagship+Reconcilliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE9D4255D7DA500E73CAE /* Flagship+Reconcilliation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		8BF02D8C23C4CA24006D154E /* FSOfflineTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSOfflineTracking.swift; sourceTree = "<group>"; };
 		8BF02D8E23C4CA24006D154E /* FSAudience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSAudience.swift; sourceTree = "<group>"; };
 		8BF02D8F23C4CA24006D154E /* FSDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSDevice.swift; sourceTree = "<group>"; };
+		8BFBE9D4255D7DA500E73CAE /* Flagship+Reconcilliation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flagship+Reconcilliation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				8BF02D7423C4CA24006D154E /* Service */,
 				8BF02D7623C4CA24006D154E /* Bucketing */,
 				8BF02D7B23C4CA24006D154E /* FSFlagShip+Context.swift */,
+				8BFBE9D4255D7DA500E73CAE /* Flagship+Reconcilliation.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				8BBCAD2923FAD0E200126600 /* Flagship.swift in Sources */,
 				8BBCAD2A23FAD0E200126600 /* FSGenerator.swift in Sources */,
 				8BBCAD2B23FAD0E200126600 /* FSTracking.swift in Sources */,
+				8BFBE9D5255D7DA500E73CAE /* Flagship+Reconcilliation.swift in Sources */,
 				8BBCAD2C23FAD0E200126600 /* ABService.swift in Sources */,
 				8BBCAD2D23FAD0E200126600 /* FlagShipVersion.swift in Sources */,
 				8B6DF79224F41B5D004C177D /* Flagship+Config.swift in Sources */,
