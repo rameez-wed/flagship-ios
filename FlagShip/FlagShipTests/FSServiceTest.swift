@@ -21,7 +21,7 @@ class FSServiceTest: XCTestCase {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [MockURLProtocol.self]
         let sessionTest = URLSession.init(configuration: configuration)
-        serviceTest = ABService("idClient", "isVisitor", "apiKey")
+        serviceTest = ABService("idClient", "isVisitor", "anunymA", "apiKey")
         
         /// Set our mock session into service
         serviceTest.sessionService = sessionTest
@@ -180,11 +180,11 @@ class FSServiceTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Service-Timeout")
 
         
-        let serviceTestWithTimeOut:ABService = ABService("bkk9glocmjcg0vtmdlng", "userId", "apiKey", timeoutService:1)
+        let serviceTestWithTimeOut:ABService = ABService("bkk9glocmjcg0vtmdlng", "userId","aid1", "apiKey", timeoutService:1)
 
-        let serviceTestWithTimeOutBis:ABService = ABService("bkk9glocmjcg0vtmdlng", "userId", "apiKey", timeoutService:2)
+        let serviceTestWithTimeOutBis:ABService = ABService("bkk9glocmjcg0vtmdlng", "userId","aid1", "apiKey", timeoutService:2)
 
-        let serviceTestWithTimeOutTer:ABService = ABService("bkk9glocmjcg0vtmdlng", "userId", "apiKey", timeoutService:3)
+        let serviceTestWithTimeOutTer:ABService = ABService("bkk9glocmjcg0vtmdlng", "userId","aid1", "apiKey", timeoutService:3)
 
         
  

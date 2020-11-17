@@ -82,6 +82,7 @@
 		8BBCAD3623FAD0E200126600 /* murmurhash3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCAD0F23FAA1B300126600 /* murmurhash3.swift */; };
 		8BE28A5324FDB577004C9E05 /* FSDeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE28A5224FDB577004C9E05 /* FSDeviceTest.swift */; };
 		8BFBE9D5255D7DA500E73CAE /* Flagship+Reconcilliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE9D4255D7DA500E73CAE /* Flagship+Reconcilliation.swift */; };
+		8BFBE9E2256427EE00E73CAE /* ReconcileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE9E1256427EE00E73CAE /* ReconcileTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		8BF02D8E23C4CA24006D154E /* FSAudience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSAudience.swift; sourceTree = "<group>"; };
 		8BF02D8F23C4CA24006D154E /* FSDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSDevice.swift; sourceTree = "<group>"; };
 		8BFBE9D4255D7DA500E73CAE /* Flagship+Reconcilliation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flagship+Reconcilliation.swift"; sourceTree = "<group>"; };
+		8BFBE9E1256427EE00E73CAE /* ReconcileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReconcileTest.swift; path = ../../Flagship/FlagShipTests/ReconcileTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				8B6DF7EB24F54541004C177D /* FSConfigTest.swift */,
 				8B6B942924F7DED6007E42F9 /* FsToolsTest.swift */,
 				8BE28A5224FDB577004C9E05 /* FSDeviceTest.swift */,
+				8BFBE9E1256427EE00E73CAE /* ReconcileTest.swift */,
 			);
 			path = FlagshipTests;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				8B871F5824A24EC5001DE9F8 /* FSGeneratorTest.swift in Sources */,
 				8B871F5B24A24EC5001DE9F8 /* FSCampaignsTest.swift in Sources */,
 				8B871F5624A24EC5001DE9F8 /* FlagshipMock.swift in Sources */,
+				8BFBE9E2256427EE00E73CAE /* ReconcileTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

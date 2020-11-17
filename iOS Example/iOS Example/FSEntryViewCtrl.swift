@@ -37,7 +37,9 @@ class FSEntryViewCtrl: UIViewController {
         
         
         let config = FSConfig()
-        config.authenticated = true
+        config.authenticated = false
+        
+        Flagship.sharedInstance.updateContext("devMode", true)
         
         Flagship.sharedInstance.start(envId: "bkk9glocmjcg0vtmdlng", apiKey: "DxAcxlnRB9yFBZYtLDue1q01dcXZCw6aM49CQB23", visitorId: "ABCD-ZASR-1234", config:config) { (result) in
             
@@ -46,7 +48,6 @@ class FSEntryViewCtrl: UIViewController {
                 self.onFinish()
             }
         }
-        
         
         /// Loading view
       //  _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onFinish), userInfo: nil, repeats: false)

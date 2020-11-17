@@ -59,7 +59,6 @@ extension Flagship{
                 aSync(result)
             }
         }
-        
     }
     
     

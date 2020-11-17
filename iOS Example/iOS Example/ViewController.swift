@@ -55,45 +55,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
  
         /// Get color for button
         
-        self.firstButton.backgroundColor = UIColor(hexString:Flagship.sharedInstance.getModification("btn-color", defaultString: "#ff7f50", activate: false), alpha: 1.0)
+        self.firstButton.backgroundColor = UIColor(hexString:Flagship.sharedInstance.getModification("btn-color", defaultString: "#ff7f50", activate: true), alpha: 1.0)
         
  
-        self.secondButton.backgroundColor = UIColor(hexString:Flagship.sharedInstance.getModification("btn-color", defaultString: "#ff7f50", activate: false), alpha: 1.0)
+        self.secondButton.backgroundColor = UIColor(hexString:Flagship.sharedInstance.getModification("btn-color", defaultString: "#ff7f50", activate: true), alpha: 1.0)
         
-        self.thirdButton.backgroundColor = UIColor(hexString:Flagship.sharedInstance.getModification("btn-color", defaultString: "#ff7f50", activate: false), alpha: 1.0)
-        
-        self.thirdButton.setTitle(Flagship.sharedInstance.getModification("ctxKeyString", defaultString:"None", activate: true), for: .normal)
-        
-        
-        
-     //   let list = Flagship.sharedInstance.getModification("list", defaultArray: [], activate: true)
-
-        
-        
-        
-        
-        // The get modificationInfo return [String:String]? // { “campaignId”: “xxxx”, “variationGroupId”: “xxxx“, “variationId”: “xxxx”}
-        
-        let inofs = Flagship.sharedInstance.getModificationInfo("btn-color")
-        
-        if let infoCampaign = inofs {
-            
-            /// Retreive the campaignId
-            let campaignId = infoCampaign["campaignId"] ?? "None"
-            
-            /// Retreive the variationGroupId
-            let variationGroupId = infoCampaign["variationGroupId"] ?? "None"
-            
-            /// Retreive the variationId
-            let variationId = infoCampaign["variationId"] ?? "None"
-            
-            
-            print(campaignId   + variationId   + variationGroupId  )
-            
-        }else {
-            
-            print("The key modification don't exist")
-        }
+        self.thirdButton.backgroundColor = UIColor(hexString:Flagship.sharedInstance.getModification("btn-color", defaultString: "#ff7f50", activate: true), alpha: 1.0)
     }
     
     

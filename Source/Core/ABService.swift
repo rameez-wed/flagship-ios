@@ -188,11 +188,16 @@ internal class ABService {
         }
         
         do {
+            
+            
             // Set Visitor Id
             infosTrack.updateValue(visitorId ?? "" , forKey: "vid")
             
+            /// Set anunymousId
+            infosTrack.updateValue(anonymousId ?? NSNull.self  , forKey: "aid")
+            
             // Set Client Id
-            infosTrack.updateValue(clientId, forKey: "cid")
+            infosTrack.updateValue(clientId ?? "", forKey: "cid")
             
             
             let data = try JSONSerialization.data(withJSONObject: infosTrack, options:[])

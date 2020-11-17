@@ -99,8 +99,10 @@ import Foundation
     // Required
     var clientId :String?
     var fsUserId:String?
-    var customVisitorId:String?
+    var visitorId:String?
     var dataSource:String = "APP"
+    
+    var anonymousId:String?
     
     // Optional
     /// Interface Name
@@ -133,7 +135,8 @@ import Foundation
     override init() {
         
         clientId        = Flagship.sharedInstance.environmentId
-        customVisitorId = Flagship.sharedInstance.visitorId
+        visitorId       = Flagship.sharedInstance.visitorId
+        anonymousId     = Flagship.sharedInstance.anonymousId
  
         
         // Set time Stamps
@@ -157,8 +160,9 @@ import Foundation
             // Set Client Id
             communParams.updateValue(self.clientId ?? "", forKey: "cid") //// Rename it
             // Set FlagShip user id Id
-            communParams.updateValue(self.customVisitorId ?? "", forKey: "vid")  //// rename it
-
+            
+            // communParams.updateValue(self.visitorId ?? "", forKey: "vid")  //// rename it
+            communParams.merge(createTupleId()){  (_, new) in new }
             // Set Data source
             communParams.updateValue(self.dataSource, forKey: "ds")
             // Set User ip
@@ -190,6 +194,31 @@ import Foundation
             
             return communParams
         }
+    }
+    
+    
+    private func createTupleId()->Dictionary<String,Any>{
+        
+        var tupleId:Dictionary<String,Any> = Dictionary<String,Any>()
+        
+        if (self.anonymousId != nil && self.visitorId != nil){
+            
+            //envoyer: cuid = visitorId, et vid=anonymousId
+            
+            tupleId.updateValue(self.visitorId ?? "", forKey: "cuid")  //// rename it
+
+            tupleId.updateValue(self.anonymousId ?? "", forKey: "vid")  //// rename it
+
+        }else if (self.visitorId != nil){
+            
+            //Si visitorid défini mais pas anonymousId, cuid pas envoyé, vid = visitorId
+            tupleId.updateValue(self.visitorId ?? "", forKey: "vid")  //// rename it
+            
+        }else{
+
+            /// Error case
+        }
+        return tupleId
     }
 }
 

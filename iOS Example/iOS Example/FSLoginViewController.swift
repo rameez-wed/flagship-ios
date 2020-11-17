@@ -33,7 +33,8 @@ class FSLoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.view.backgroundColor =  UIColor(hexString: Flagship.sharedInstance.getModification("backgroundColor", defaultString: "#b6fcd5", activate: true))
+
         
         //Round button login
         loginBtn.layer.cornerRadius = loginBtn.frame.height/2
@@ -63,23 +64,9 @@ class FSLoginViewController: UIViewController, UITextFieldDelegate {
     /// On Click Login
     @IBAction func onClickLogin(){
         
-        Flagship.sharedInstance.updateContext("isVip", true)
-        Flagship.sharedInstance.updateContext("Number_Key", 200)
-        Flagship.sharedInstance.updateContext("Boolean_Key", true)
-        Flagship.sharedInstance.updateContext("String_Key", "june")
-        
-   
-        Flagship.sharedInstance.authenticateVisitor("alex") { (result) in
+        Flagship.sharedInstance.authenticateVisitor(newVisitorId: "alex") { (result) in
             
             if result == .Updated {
-                
-                
-                Flagship.sharedInstance.activateModification(key: "complex")
-                
-                Flagship.sharedInstance.activateModification(key: "alias")
-                
-                Flagship.sharedInstance.activateModification(key: "array")
-                
                 
                 DispatchQueue.main.async {
                     

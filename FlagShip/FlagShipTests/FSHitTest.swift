@@ -113,7 +113,7 @@ class FSHitTest: XCTestCase {
         tr.interfaceName = "iName"
         tr.sessionEventNumber = 13
         tr.currentSessionTimeStamp = 1111
-        tr.customVisitorId = "custom"
+        tr.visitorId = "custom"
         tr.queueTime = 123456
         tr.userIp = "1111.1111.111.111"
         tr.screenResolution = "resolution"
