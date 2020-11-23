@@ -50,6 +50,9 @@ public class Flagship:NSObject{
     /// Current Context
     internal var context:FSContext!
     
+    internal var contextBis:FSContext?
+
+    
     
     /// All Campaigns
     private var _campaigns:FSCampaigns!
@@ -141,6 +144,8 @@ public class Flagship:NSObject{
         
         self.audience = FSAudience()
         
+        
+        self.contextBis = FSContext()
     }
     
     
@@ -176,7 +181,7 @@ public class Flagship:NSObject{
             /// Before calling service manage the tuple
             if config.authenticated{
                 
-                self.visitorId = visitorId ?? ""   /// when the authenticated is true , the visitor id should not be nil
+                self.visitorId = visitorId     /// when the authenticated is true , the visitor id should not be nil
                 self.anonymousId = try FSTools.manageVisitorId(nil)
             }else{
                 

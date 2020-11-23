@@ -101,7 +101,7 @@ internal class ABService {
         
         do {
             
-            let params:NSMutableDictionary = ["visitor_id":visitorId ?? ""  /* , "anonymousId":anonymousId ?? NSNull.self */, "context":currentContext, "trigger_hit":false]
+            let params:NSMutableDictionary = ["visitor_id":visitorId ?? ""  , "anonymousId":anonymousId ?? NSNull() , "context":currentContext, "trigger_hit":false]
             
             
             print(" @@@@@@@@@@@@@@@@@@@@@@@@@ visitorId =  \(self.visitorId ?? "null")  @@@@@@@@@@@@@@@@@@@@@@@@@")

@@ -20,7 +20,7 @@ class FSLoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordTestField:UITextField!
     /// Login btn
     @IBOutlet var loginBtn:UIButton!
-    
+        
     
     var alreadyLogged:Bool = false
     
@@ -64,7 +64,7 @@ class FSLoginViewController: UIViewController, UITextFieldDelegate {
     /// On Click Login
     @IBAction func onClickLogin(){
         
-        Flagship.sharedInstance.authenticateVisitor(newVisitorId: "alex") { (result) in
+        Flagship.sharedInstance.authenticateVisitor(newVisitorId: self.loginTextField.text ?? "") { (result) in
             
             if result == .Updated {
                 
@@ -110,5 +110,6 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
     
     return true
 }
-
+    
+    
 }

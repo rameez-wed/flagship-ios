@@ -41,17 +41,17 @@ class FSEntryViewCtrl: UIViewController {
         
         Flagship.sharedInstance.updateContext("devMode", true)
         
-        Flagship.sharedInstance.start(envId: "bkk9glocmjcg0vtmdlng", apiKey: "DxAcxlnRB9yFBZYtLDue1q01dcXZCw6aM49CQB23", visitorId: "ABCD-ZASR-1234", config:config) { (result) in
+        Flagship.sharedInstance.start(envId: "bkk9glocmjcg0vtmdlng", apiKey: "j2jL0rzlgVaODLw2Cl4JC3f4MflKrMgIaQOENv36", visitorId: "ABCD-ZASR-1234", config:config) { (result) in
             
             if result == .Ready {
                 
-                self.onFinish()
-            }
+                
+            }else{
+                
+             }
+            
+            self.onFinish()
         }
-        
-        /// Loading view
-      //  _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onFinish), userInfo: nil, repeats: false)
-        
     }
     
  

@@ -20,7 +20,10 @@ extension Flagship{
     public func authenticateVisitor(newVisitorId:String, newContext:[String:Any]? = nil, onSynchronized:((FlagshipResult)->Void)? = nil){
         
         /// Update the visitor an anonymous id 
-        self.anonymousId = self.visitorId
+        if self.anonymousId == nil{
+            
+            self.anonymousId = self.visitorId
+        }
         
         self.visitorId = newVisitorId
         
@@ -42,7 +45,7 @@ extension Flagship{
     /// - Parameters:
     ///   - context: <#context description#>
     ///   - onSynchronized: <#onSynchronized description#>
-    public func unAuthenticateVisitor(_ newContext:[String:Any]? = nil, onSynchronized:((FlagshipResult)->Void)? = nil){
+    public func unAuthenticateVisitor( newContext:[String:Any]? = nil, onSynchronized:((FlagshipResult)->Void)? = nil){
         
         self.visitorId = self.anonymousId
         

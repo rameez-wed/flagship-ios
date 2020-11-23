@@ -78,10 +78,10 @@ extension Flagship {
                 }
                 
                 /// Bucket the variations with the cached script
-                self.campaigns = bucketMgr.bucketVariations(self.visitorId, cachedBucket)
+                self.campaigns = bucketMgr.bucketVariations(self.visitorId ?? "", cachedBucket)
             }else{
                 /// Bucket the variation with a new script from server
-                self.campaigns = bucketMgr.bucketVariations(self.visitorId, scriptBucket ?? FSBucket())
+                self.campaigns = bucketMgr.bucketVariations(self.visitorId ?? "", scriptBucket ?? FSBucket())
             }
             
             /// Update the modifications
