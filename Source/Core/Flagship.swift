@@ -39,7 +39,7 @@ public class Flagship:NSObject{
     }
     
     /// Client Id
-    internal var environmentId:String!
+    internal var environmentId:String?
     
     
     
