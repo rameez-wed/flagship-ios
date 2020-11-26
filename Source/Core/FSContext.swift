@@ -245,7 +245,11 @@ internal class FSContext{
         
         if let aCtx = newContext{
             
+            /// Remove all previous context
             self.cleanContext()
+            /// Reload the default preset context
+            self.currentContext.merge(FSPresetContext.getPresetContextForApp()) { (_, new) in new }
+            /// Merge the new context provided with the setNewContext
             self.currentContext.merge(aCtx) {  (_, new) in new }
             
         }

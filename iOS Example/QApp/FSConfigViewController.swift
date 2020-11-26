@@ -9,7 +9,7 @@
 import UIKit
 import Flagship
 
-class FSConfigViewController: UIViewController {
+class FSConfigViewController: UIViewController, UITextFieldDelegate {
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -78,6 +78,38 @@ class FSConfigViewController: UIViewController {
         }else{
             
             print(" @@@@@@@@@@@@@@@@@@@@@@ AUTHENTICATE IS FALSE @@@@@@@@@@@@@@@@@@@@@@@@@")
+        }
+    }
+    
+    
+    /// Delegate textfield
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        hideKeyBoard()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    
+        
+        if textField.tag == 111 {
+            self.hideKeyBoard()
+            DispatchQueue.main.async {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let contextCtrl = storyboard.instantiateViewController(
+                              withIdentifier: "contextPopUp")
+                ///push view
+                contextCtrl.modalPresentationStyle = .popover
+                self.present(contextCtrl, animated: true) {
+                    
+                  
+                    
+                }
+            }
+
         }
     }
 }

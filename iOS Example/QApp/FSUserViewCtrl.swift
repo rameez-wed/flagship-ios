@@ -40,9 +40,15 @@ class FSUserViewCtrl: UIViewController {
         newVisitorField?.attributedPlaceholder = redPlaceholderText
         
         
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard)))
+
     }
     
-    
+    // Hide KeyBoard
+    @objc func hideKeyBoard(){
+        
+        self.view.endEditing(true)
+    }
     
     internal func updateIds(){
         

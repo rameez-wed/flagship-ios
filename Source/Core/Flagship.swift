@@ -39,7 +39,7 @@ public class Flagship:NSObject{
     }
     
     /// Client Id
-    internal var environmentId:String?
+    internal var environmentId:String!
     
     
     
@@ -49,8 +49,6 @@ public class Flagship:NSObject{
     
     /// Current Context
     internal var context:FSContext!
-    
-    internal var contextBis:FSContext?
 
     
     
@@ -143,9 +141,6 @@ public class Flagship:NSObject{
         self.context = FSContext()
         
         self.audience = FSAudience()
-        
-        
-        self.contextBis = FSContext()
     }
     
     
@@ -346,6 +341,23 @@ public class Flagship:NSObject{
         }
         return context.readStringFromContext(key, defaultString: defaultString)
     }
+    
+    
+    @objc public func getModification(_ key:String, defaultValue:String, activate:Bool = false) -> String{
+        
+        if disabledSdk{
+            FSLogger.FSlog("The Sdk is disabled ... will return a default value", .Campaign)
+            return defaultValue
+        }
+        
+        
+        if activate && self.campaigns != nil {
+            
+            self.service?.activateCampaignRelativetoKey(key,self.campaigns)
+        }
+        return context.readStringFromContext(key, defaultString: defaultValue)
+    }
+    
     
     /**
      Get Modification for Double
