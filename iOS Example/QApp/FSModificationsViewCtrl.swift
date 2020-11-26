@@ -11,7 +11,7 @@ import Flagship
 
 
 
-enum FSValueType {
+internal enum FSValueType {
     
     case DoubleType
     case IntegerType
