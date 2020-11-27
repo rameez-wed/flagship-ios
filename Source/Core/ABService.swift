@@ -65,10 +65,7 @@ internal class ABService {
     
     
     
-  
-    
-    
-    init(_ clientId:String, _ visitorId:String, _ anonymousId:String, _ apiKey:String, timeoutService:TimeInterval = FS_TimeOutRequestApi) {
+    init(_ clientId:String, _ visitorId:String, _ anonymousId:String?, _ apiKey:String, timeoutService:TimeInterval = FS_TimeOutRequestApi) {
         
         
         /// SSet the Client ID
@@ -101,12 +98,17 @@ internal class ABService {
         
         do {
             
-            let params:NSMutableDictionary = ["visitor_id":visitorId ?? ""  , "anonymousId":anonymousId ?? NSNull() , "context":currentContext, "trigger_hit":false]
+            /// Create param with visitor and currentContext
+            let params:NSMutableDictionary = ["visitor_id":visitorId ?? "" , "context":currentContext, "trigger_hit":false]
+            /// if anonymousId is not nil ===> add it to params
+            if let aId = anonymousId{
+                
+                params.setValue(aId, forKey: "anonymousId")
+            }
             
+            FSLogger.FSlog(" @@@@@@@@@@@@@@@@@@@@@@@@@ visitorId =  \(self.visitorId ?? "null")  @@@@@@@@@@@@@@@@@@@@@@@@@", .Campaign)
             
-            print(" @@@@@@@@@@@@@@@@@@@@@@@@@ visitorId =  \(self.visitorId ?? "null")  @@@@@@@@@@@@@@@@@@@@@@@@@")
-            
-            print(" @@@@@@@@@@@@@@@@@@@@@@@@@ anonymousId =  \(self.anonymousId ?? "null")  @@@@@@@@@@@@@@@@@@@@@@@@@")
+            FSLogger.FSlog(" @@@@@@@@@@@@@@@@@@@@@@@@@ anonymousId =  \(self.anonymousId ?? "null")  @@@@@@@@@@@@@@@@@@@@@@@@@", .Campaign)
 
             
             let data = try JSONSerialization.data(withJSONObject: params, options:[])
@@ -116,8 +118,7 @@ internal class ABService {
                 var request:URLRequest = URLRequest(url:getUrl, timeoutInterval: timeOutServiceForRequestApi)  //// Request with time interval
                 request.httpMethod = "POST"
                 request.httpBody = data
-                request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-                request.addValue("application/json", forHTTPHeaderField: "Accept")
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 
                 /// Add x-api-key
                 request.addValue(apiKey, forHTTPHeaderField: FSX_Api_Key)
@@ -193,14 +194,21 @@ internal class ABService {
             // Set Visitor Id
             infosTrack.updateValue(visitorId ?? "" , forKey: "vid")
             
-            /// Set anunymousId
-            infosTrack.updateValue(anonymousId ?? NSNull.self  , forKey: "aid")
+            /// Set anunymousId if available
+            if let aId = anonymousId{
+                
+                infosTrack.updateValue(aId , forKey: "aid")
+            }
             
             // Set Client Id
             infosTrack.updateValue(clientId ?? "", forKey: "cid")
             
+            FSLogger.FSlog("Data to send through the activate hit \(infosTrack)", .Campaign)
+
             
             let data = try JSONSerialization.data(withJSONObject: infosTrack, options:[])
+           
+            
             
             // here we have data ready, check the connexion before
             
@@ -220,8 +228,8 @@ internal class ABService {
                 
                 /// Add x-api-key
                 request.addValue(apiKey, forHTTPHeaderField: FSX_Api_Key)
-                
-                //let session = URLSession(configuration:URLSessionConfiguration.default)
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
                 sessionService.dataTask(with: request) { (responseData, response, error) in
                       
                       if (error == nil){

@@ -191,7 +191,7 @@ public class Flagship:NSObject{
             return
         }
         /// Sservice with apiKey and Timeout
-        self.service = ABService(self.environmentId, self.visitorId ?? "", self.anonymousId ?? "null",apiKey, timeoutService:config.flagshipTimeOutRequestApi)
+        self.service = ABService(self.environmentId, self.visitorId ?? "", self.anonymousId ,apiKey, timeoutService:config.flagshipTimeOutRequestApi)
         
         
         // Set the préconfigured Context
@@ -248,7 +248,7 @@ public class Flagship:NSObject{
                 
                 if (error == nil){
                     
-                    // Check if the sdk is disabled
+                    /// Check if the sdk is disabled
                     if let panic = campaigns?.panic {
                         
                         if(panic){

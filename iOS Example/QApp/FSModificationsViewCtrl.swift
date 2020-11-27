@@ -172,7 +172,7 @@ class FSModificationsViewCtrl: UIViewController, UIPickerViewDelegate, UIPickerV
 
 @IBAction func onClickActivate(){
     
-    
+    Flagship.sharedInstance.getModification("btnTitle", defaultString: "toto", activate: true)
 }
 
 

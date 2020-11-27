@@ -111,8 +111,7 @@ internal extension ABService {
                 
                 uploadKeyValueCtxRqst.httpMethod = "POST"
                 uploadKeyValueCtxRqst.httpBody = data
-                uploadKeyValueCtxRqst.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-                uploadKeyValueCtxRqst.addValue("application/json", forHTTPHeaderField: "Accept")
+                uploadKeyValueCtxRqst.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 
                 /// Add x-api-key
                 uploadKeyValueCtxRqst.addValue(apiKey, forHTTPHeaderField: FSX_Api_Key)
