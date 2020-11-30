@@ -24,6 +24,14 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var visitorCtxLabel:UILabel?
 
+    @IBOutlet var modeBtn:UIButton?
+    
+    @IBOutlet var resetBtn:UIButton?
+    
+    @IBOutlet var startBtn:UIButton?
+
+
+
     
     
     var delegate:FSConfigViewDelegate?
@@ -38,19 +46,23 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
         self.envIdTextField?.text = "bkk9glocmjcg0vtmdlng"
         self.apiKetTextField?.text = "j2jL0rzlgVaODLw2Cl4JC3f4MflKrMgIaQOENv36"
         self.visitorIdTextField?.text = nil
-        
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard)))
-        
         self.visitorCtxLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showEditContext)))
         self.visitorCtxLabel?.isUserInteractionEnabled = true
         
-        
-       
-
-        
+        /// Config mode button
+        modeBtn?.setTitle("API", for: .normal)
+        modeBtn?.setTitle(" BUCKETING ", for: .selected)
         self.visitorCtxLabel?.text = String(format: "%@", Flagship.sharedInstance.getVisitorContext())
+        
+        FSCTools.roundButton(modeBtn)
+        FSCTools.roundButton(startBtn)
+        FSCTools.roundButton(resetBtn)
+
+
 
     }
+
     
     // Hide KeyBoard
     @objc func hideKeyBoard(){
@@ -90,8 +102,10 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
         
         let userIdToSet:String? = (visitorIdTextField?.text?.count == 0) ? nil : visitorIdTextField?.text
         
-
-        let config  = FSConfig(.DECISION_API, authenticated: self.authenticateSwitch?.isOn ?? false)
+        /// Get the mode
+        let mode:FlagshipMode =  modeBtn?.isSelected ?? false ? .BUCKETING : .DECISION_API
+        
+        let config  = FSConfig(mode, authenticated: self.authenticateSwitch?.isOn ?? false)
         
         /// Start function
         Flagship.sharedInstance.start(envId: envIdTextField?.text ?? "", apiKey: apiKetTextField?.text ?? "", visitorId: userIdToSet, config:config) { (result) in
@@ -124,6 +138,36 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    
+    @IBAction func onClickModeBtn(){
+        
+        /// If sselected ====> Bucketing mode
+        if let isSelectd = modeBtn?.isSelected{
+            
+            modeBtn?.isSelected = !isSelectd
+        }
+    }
+    
+    
+    
+    @IBAction func onClicResetBtn(){
+        
+        
+        self.delegate?.onResetSdk()
+        
+        UserDefaults.standard.removeObject(forKey: "FlagShipIdKey")
+        
+        visitorIdTextField?.text = nil
+        authenticateSwitch?.isOn = false
+        visitorCtxLabel?.text = nil
+        modeBtn?.isSelected = false
+        
+        
+
+    }
+    
+    
+    
     /// Delegate textfield
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -148,6 +192,8 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
 protocol FSConfigViewDelegate {
     
     func onGetSdkReady()
+    
+    func onResetSdk()
     
 }
 

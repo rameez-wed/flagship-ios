@@ -18,9 +18,12 @@ class FSUserViewCtrl: UIViewController {
     
     @IBOutlet var visitorTextField:UITextField?
     @IBOutlet var anonymousIdField:UITextField?
-    
-    
     @IBOutlet var newVisitorField:UITextField?
+    
+    
+    @IBOutlet var authBtn:UIButton?
+    @IBOutlet var unAuthBtn:UIButton?
+    @IBOutlet var syncBtn:UIButton?
 
     
     
@@ -29,9 +32,9 @@ class FSUserViewCtrl: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.visitorTextField?.text =  Flagship.sharedInstance.visitorId
+       // self.visitorTextField?.text =  Flagship.sharedInstance.visitorId
         
-        self.anonymousIdField?.text = Flagship.sharedInstance.anonymousId
+      //  self.anonymousIdField?.text = Flagship.sharedInstance.anonymousId
         
         
         let redPlaceholderText = NSAttributedString(string: "New authenticated id",
@@ -41,7 +44,22 @@ class FSUserViewCtrl: UIViewController {
         
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard)))
-
+        
+        
+        FSCTools.roundButton(authBtn)
+        FSCTools.roundButton(unAuthBtn)
+        FSCTools.roundButton(syncBtn)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        self.visitorTextField?.text =  Flagship.sharedInstance.visitorId
+        
+        self.anonymousIdField?.text = Flagship.sharedInstance.anonymousId
+        
     }
     
     // Hide KeyBoard
@@ -57,6 +75,19 @@ class FSUserViewCtrl: UIViewController {
             self.visitorTextField?.text =  Flagship.sharedInstance.visitorId
             
             self.anonymousIdField?.text = Flagship.sharedInstance.anonymousId
+        }
+    }
+    
+    
+    internal func cleanViewField(){
+        
+        DispatchQueue.main.async {
+            
+            self.visitorTextField?.text =  nil
+            
+            self.anonymousIdField?.text = nil
+            
+            self.newVisitorField?.text = nil
         }
     }
     

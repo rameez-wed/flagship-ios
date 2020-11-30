@@ -59,6 +59,11 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
         pageHitBtn.isEnabled = false
         eventHitBtn.isEnabled = false
         transactiontHitBtn.isEnabled = false
+        
+        FSCTools.roundButton(pageHitBtn)
+        FSCTools.roundButton(eventHitBtn)
+        FSCTools.roundButton(transactiontHitBtn)
+
 
         
     }

@@ -10,6 +10,7 @@
 		8B10597F241BF0B800227F1E /* Flagship.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B10597E241BF0B800227F1E /* Flagship.framework */; };
 		8B105980241BF0B800227F1E /* Flagship.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B10597E241BF0B800227F1E /* Flagship.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B90007E257015A800703DDB /* FSHitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90007D257015A800703DDB /* FSHitViewController.swift */; };
+		8B90008C2575298600703DDB /* FSCustomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90008B2575298600703DDB /* FSCustomTools.swift */; };
 		8BBCAD4123FAD12C00126600 /* Flagship.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBCAD4023FAD12C00126600 /* Flagship.framework */; };
 		8BBCAD4223FAD12C00126600 /* Flagship.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBCAD4023FAD12C00126600 /* Flagship.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BEF092E23C3902700396B78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF092D23C3902700396B78 /* AppDelegate.swift */; };
@@ -86,6 +87,7 @@
 /* Begin PBXFileReference section */
 		8B10597E241BF0B800227F1E /* Flagship.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Flagship.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B90007D257015A800703DDB /* FSHitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHitViewController.swift; sourceTree = "<group>"; };
+		8B90008B2575298600703DDB /* FSCustomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCustomTools.swift; sourceTree = "<group>"; };
 		8BBCAD4023FAD12C00126600 /* Flagship.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Flagship.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEF092A23C3902700396B78 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEF092D23C3902700396B78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				8BF2DE0B256D115B005FF664 /* FSModificationsViewCtrl.swift */,
 				8BF2DE41256F996A005FF664 /* FSContextViewCtrl.swift */,
 				8B90007D257015A800703DDB /* FSHitViewController.swift */,
+				8B90008B2575298600703DDB /* FSCustomTools.swift */,
 			);
 			path = QApp;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF2DE42256F996A005FF664 /* FSContextViewCtrl.swift in Sources */,
+				8B90008C2575298600703DDB /* FSCustomTools.swift in Sources */,
 				8BF2DDE525681A97005FF664 /* ViewController.swift in Sources */,
 				8BF2DDFC256BD2B5005FF664 /* FSConfigViewController.swift in Sources */,
 				8B90007E257015A800703DDB /* FSHitViewController.swift in Sources */,

@@ -45,6 +45,11 @@ class FSModificationsViewCtrl: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBOutlet var typePicker:UIPickerView?
     
+    @IBOutlet var activateBtn:UIButton?
+    @IBOutlet var getBtn:UIButton?
+
+    
+    
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -58,16 +63,12 @@ class FSModificationsViewCtrl: UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
         let redPlaceholderText = NSAttributedString(string: "Default value",
-                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         defaultValueField?.attributedPlaceholder = redPlaceholderText
         
         // Set the default value for picker
-        
         typePicker?.selectRow(0, inComponent:0, animated:true)
         defaultValueSwitch?.isHidden = true
         
@@ -75,6 +76,9 @@ class FSModificationsViewCtrl: UIViewController, UIPickerViewDelegate, UIPickerV
         // Do any additional setup after loading the view.
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard)))
         
+        FSCTools.roundButton(activateBtn)
+        FSCTools.roundButton(getBtn)
+
         
     }
     
