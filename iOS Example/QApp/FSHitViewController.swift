@@ -34,11 +34,23 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var idTransacField: UITextField!
     
     @IBOutlet weak var affiliationField: UITextField!
-
-
-
-
-
+    
+    @IBOutlet weak var revenueField: UITextField!
+    
+    @IBOutlet weak var shippingField: UITextField!
+    
+    @IBOutlet weak var taxField: UITextField!
+    
+    @IBOutlet weak var currencyField: UITextField!
+    
+    @IBOutlet weak var couponCodeField: UITextField!
+    
+    @IBOutlet weak var paymentMethodField: UITextField!
+    
+    @IBOutlet weak var shippingMethodField: UITextField!
+    
+    @IBOutlet weak var itemCountField: UITextField!
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         
@@ -104,15 +116,87 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
     }
     
     /// Send Transaction
+//
+//
+//    @IBOutlet weak var affiliationField: UITextField!
+//
+//    @IBOutlet weak var revenueField: UITextField!
+//
+//    @IBOutlet weak var shippingField: UITextField!
+//
+//    @IBOutlet weak var taxField: UITextField!
+//
+//    @IBOutlet weak var currencyField: UITextField!
+//
+//    @IBOutlet weak var couponCodeField: UITextField!
+//
+//    @IBOutlet weak var paymentMethodField: UITextField!
+//
+//    @IBOutlet weak var shippingMethodField: UITextField!
+//
+//    @IBOutlet weak var itemCountField: UITextField!
     
     @IBAction func onClickTransactionHit(){
         
-        if let input = idTransacField!.text{
+        if let input = idTransacField!.text  {
             
-            if input.count > 2{
-                Flagship.sharedInstance.sendHit(FSTransaction(transactionId: input, affiliation: "testTransac"))
+            if let inputName = affiliationField!.text{
+                
+                let hitTransac = FSTransaction(transactionId:input, affiliation:inputName)
+                
+                /// revenue
+                if let inputRevenue = revenueField!.text{
+                    
+                    hitTransac.revenue = NSNumber(value: Int(String(format: "%@", inputRevenue)) ?? 0)
+
+                }
+                /// shipping
+                if let inputShipping = shippingField.text{
+                    
+                    hitTransac.shipping = NSNumber(value: Int(String(format: "%@", inputShipping)) ?? 0)
+
+                }
+                /// tax
+                if let inputTax = taxField.text{
+                    
+                    hitTransac.tax = NSNumber(value: Int(String(format: "%@", inputTax)) ?? 0)
+                }
+                /// currency
+                if let inputCurrency = currencyField.text{
+                    
+                    hitTransac.currency = inputCurrency
+                }
+                /// couponCode
+                if let inputCoupon = couponCodeField.text{
+                    
+                    hitTransac.couponCode = inputCoupon
+                }
+                /// paymentMethod
+                if let inputPay = paymentMethodField.text{
+                    
+                    hitTransac.paymentMethod = inputPay
+                }
+                /// shippingMethod
+                if let inputShipMethode = shippingMethodField.text{
+                    
+                    hitTransac.shippingMethod = inputShipMethode
+                }
+                //// items
+                
+                hitTransac.itemCount = 0
+                
+                /// Send hit transaction
+                Flagship.sharedInstance.sendHit(hitTransac)
             }
+            
+
         }
+        
+        
+        
+        
+        
+        
     }
     
     
@@ -169,3 +253,50 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
     }
 
 }
+
+
+//let hitTransac = FSTransaction(transactionId:input, affiliation: "testTransac")
+//
+///// revenue
+//if let inputRevenue = revenueField!.text{
+//
+//    hitTransac.revenue = NSNumber(value: Int(String(format: "%@", inputRevenue)) ?? 0)
+//
+//}
+///// shipping
+//if let inputShipping = shippingField.text{
+//
+//    hitTransac.shipping = NSNumber(value: Int(String(format: "%@", inputShipping)) ?? 0)
+//
+//}
+///// tax
+//if let inputTax = taxField.text{
+//
+//    hitTransac.tax = NSNumber(value: Int(String(format: "%@", inputTax)) ?? 0)
+//}
+///// currency
+//if let inputCurrency = currencyField.text{
+//
+//    hitTransac.currency = inputCurrency
+//}
+///// couponCode
+//if let inputCoupon = couponCodeField.text{
+//
+//    hitTransac.couponCode = inputCoupon
+//}
+///// paymentMethod
+//if let inputPay = paymentMethodField.text{
+//
+//    hitTransac.paymentMethod = inputPay
+//}
+///// shippingMethod
+//if let inputShipMethode = shippingMethodField.text{
+//
+//    hitTransac.shippingMethod = inputShipMethode
+//}
+////// items
+//
+//hitTransac.itemCount = 0
+//
+///// Send hit transaction
+//Flagship.sharedInstance.sendHit(hitTransac)
