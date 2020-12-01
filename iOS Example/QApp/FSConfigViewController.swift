@@ -53,7 +53,6 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
         /// Config mode button
         modeBtn?.setTitle("API", for: .normal)
         modeBtn?.setTitle(" BUCKETING ", for: .selected)
-        self.visitorCtxLabel?.text = String(format: "%@", Flagship.sharedInstance.getVisitorContext())
         
         FSCTools.roundButton(modeBtn)
         FSCTools.roundButton(startBtn)
@@ -91,7 +90,6 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.visitorCtxLabel?.text = String(format: "%@", Flagship.sharedInstance.getVisitorContext())
 
     }
     

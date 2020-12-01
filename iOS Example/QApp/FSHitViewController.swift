@@ -95,6 +95,8 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
             if input.count > 2{
                 
                 Flagship.sharedInstance.sendHit(FSPage(input))
+                showPopUpMessage("Page name: \(input)")
+
             }
         }
     }
@@ -111,30 +113,12 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
                 
                 let type:FSCategoryEvent = typeEventSwitch.isOn ? .Action_Tracking : .User_Engagement
                 Flagship.sharedInstance.sendHit(FSEvent(eventCategory:type, eventAction: input))
+                showPopUpMessage("Event name: \(input)")
             }
         }
     }
     
     /// Send Transaction
-//
-//
-//    @IBOutlet weak var affiliationField: UITextField!
-//
-//    @IBOutlet weak var revenueField: UITextField!
-//
-//    @IBOutlet weak var shippingField: UITextField!
-//
-//    @IBOutlet weak var taxField: UITextField!
-//
-//    @IBOutlet weak var currencyField: UITextField!
-//
-//    @IBOutlet weak var couponCodeField: UITextField!
-//
-//    @IBOutlet weak var paymentMethodField: UITextField!
-//
-//    @IBOutlet weak var shippingMethodField: UITextField!
-//
-//    @IBOutlet weak var itemCountField: UITextField!
     
     @IBAction func onClickTransactionHit(){
         
@@ -187,6 +171,8 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
                 
                 /// Send hit transaction
                 Flagship.sharedInstance.sendHit(hitTransac)
+                showPopUpMessage("Transaction name: \(inputName)")
+
             }
             
 
@@ -198,7 +184,6 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
         
         
     }
-    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -235,7 +220,15 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
             }else{
                 transactiontHitBtn.isEnabled = false
             }
+        }
+        
+        /// if the tag is over 400 ===> only number field
+        if textField.tag > 400 {
             
+            let invalidCharacters = CharacterSet(charactersIn: "0123456789.").inverted
+            
+            return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+                
         }
         
         return true
@@ -251,52 +244,14 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
             self.labelSwitch.text = typeString
         }
     }
+    
+    
+    
+    private func showPopUpMessage(_ message:String){
+        let msg = String(format: "%@",message )
+        let alertCtrl = UIAlertController(title: "HIT", message:msg, preferredStyle: .alert)
+        alertCtrl.addAction(UIAlertAction(title: "OK", style: .cancel,handler: nil))
+        self.present(alertCtrl, animated: true, completion: nil)
+    }
 
 }
-
-
-//let hitTransac = FSTransaction(transactionId:input, affiliation: "testTransac")
-//
-///// revenue
-//if let inputRevenue = revenueField!.text{
-//
-//    hitTransac.revenue = NSNumber(value: Int(String(format: "%@", inputRevenue)) ?? 0)
-//
-//}
-///// shipping
-//if let inputShipping = shippingField.text{
-//
-//    hitTransac.shipping = NSNumber(value: Int(String(format: "%@", inputShipping)) ?? 0)
-//
-//}
-///// tax
-//if let inputTax = taxField.text{
-//
-//    hitTransac.tax = NSNumber(value: Int(String(format: "%@", inputTax)) ?? 0)
-//}
-///// currency
-//if let inputCurrency = currencyField.text{
-//
-//    hitTransac.currency = inputCurrency
-//}
-///// couponCode
-//if let inputCoupon = couponCodeField.text{
-//
-//    hitTransac.couponCode = inputCoupon
-//}
-///// paymentMethod
-//if let inputPay = paymentMethodField.text{
-//
-//    hitTransac.paymentMethod = inputPay
-//}
-///// shippingMethod
-//if let inputShipMethode = shippingMethodField.text{
-//
-//    hitTransac.shippingMethod = inputShipMethode
-//}
-////// items
-//
-//hitTransac.itemCount = 0
-//
-///// Send hit transaction
-//Flagship.sharedInstance.sendHit(hitTransac)

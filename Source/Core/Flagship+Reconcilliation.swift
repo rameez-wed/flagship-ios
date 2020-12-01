@@ -19,6 +19,11 @@ extension Flagship{
     ///   - onSynchronized: <#onSynchronized description#>
     public func authenticateVisitor(newVisitorId:String, newContext:[String:Any]? = nil, onSynchronized:((FlagshipResult)->Void)? = nil){
         
+        if (sdkModeRunning == .BUCKETING){
+            
+            return
+        }
+        
         /// Update the visitor an anonymous id 
         if self.anonymousId == nil{
             
@@ -46,6 +51,11 @@ extension Flagship{
     ///   - context: <#context description#>
     ///   - onSynchronized: <#onSynchronized description#>
     public func unAuthenticateVisitor( newContext:[String:Any]? = nil, onSynchronized:((FlagshipResult)->Void)? = nil){
+        
+        if (sdkModeRunning == .BUCKETING){
+            
+            return
+        }
         
         self.visitorId = self.anonymousId
         
