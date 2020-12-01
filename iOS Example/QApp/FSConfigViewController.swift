@@ -118,9 +118,25 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
             if result == .Ready {
                 
                 self.delegate?.onGetSdkReady()
+            }else{
+                
+                self.showErrorMessage()
             }
         }
     }
+    
+    internal func showErrorMessage(){
+        
+        DispatchQueue.main.async {
+            
+            let msg = "Sorry, something went wrong, please check your envId and apiKey"
+            let alertCtrl = UIAlertController(title: "Start", message:msg, preferredStyle: .alert)
+            alertCtrl.addAction(UIAlertAction(title: "OK", style: .cancel,handler: nil))
+            self.present(alertCtrl, animated: true, completion: nil)
+        }
+        
+    }
+    
     
     
     
@@ -192,6 +208,9 @@ protocol FSConfigViewDelegate {
     func onGetSdkReady()
     
     func onResetSdk()
+    
+    
+
     
 }
 

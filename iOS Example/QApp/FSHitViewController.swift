@@ -177,12 +177,7 @@ class FSHitViewController: UIViewController,UITextFieldDelegate {
             
 
         }
-        
-        
-        
-        
-        
-        
+
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

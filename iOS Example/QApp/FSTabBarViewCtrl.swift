@@ -11,6 +11,10 @@ import UIKit
 class FSTabBarViewCtrl: UITabBarController, FSConfigViewDelegate {
     
     
+ 
+    
+    
+    
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

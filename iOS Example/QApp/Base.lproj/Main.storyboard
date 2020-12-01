@@ -269,7 +269,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-JF-tjB">
-                                <rect key="frame" x="20" y="617" width="374" height="1"/>
+                                <rect key="frame" x="20" y="577" width="374" height="1"/>
                                 <color key="backgroundColor" red="0.87450980389999999" green="0.2666666667" blue="0.43137254899999999" alpha="0.84705882349999995" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Q7A-qx-chk"/>
@@ -279,7 +279,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New authenticated id" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="KkP-qi-Ml2">
-                                <rect key="frame" x="20" y="593" width="374" height="19"/>
+                                <rect key="frame" x="20" y="553" width="374" height="19"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no"/>
@@ -341,7 +341,7 @@
                             <constraint firstItem="h0v-SG-gre" firstAttribute="leading" secondItem="j6K-mk-3F4" secondAttribute="leading" constant="20" id="MO3-3V-wUk"/>
                             <constraint firstItem="UPB-G3-lcf" firstAttribute="top" secondItem="h0v-SG-gre" secondAttribute="bottom" constant="20" id="SBH-az-YhX"/>
                             <constraint firstItem="NIh-Ul-cGH" firstAttribute="leading" secondItem="j6K-mk-3F4" secondAttribute="leading" constant="20" id="SKi-sb-vJ2"/>
-                            <constraint firstItem="h0v-SG-gre" firstAttribute="top" secondItem="aD9-JF-tjB" secondAttribute="bottom" constant="10" id="Srv-67-i2I"/>
+                            <constraint firstItem="h0v-SG-gre" firstAttribute="top" secondItem="aD9-JF-tjB" secondAttribute="bottom" constant="50" id="Srv-67-i2I"/>
                             <constraint firstAttribute="trailing" secondItem="aD9-JF-tjB" secondAttribute="trailing" constant="20" id="b1w-vr-98u"/>
                             <constraint firstItem="aD9-JF-tjB" firstAttribute="leading" secondItem="Ruj-oM-h8F" secondAttribute="leading" constant="20" id="bmV-GZ-mdi"/>
                             <constraint firstItem="dUm-tI-egd" firstAttribute="top" secondItem="QW0-32-iEA" secondAttribute="bottom" constant="50" id="c8K-Sx-qKw"/>
@@ -371,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHZ-h4-rbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2554" y="384"/>
+            <point key="canvasLocation" x="-2555.072463768116" y="383.70535714285711"/>
         </scene>
         <!--Hits-->
         <scene sceneID="JiU-OC-5xW">
@@ -973,7 +973,7 @@
                                                     <action selector="onClikcStart" destination="rjy-GE-W2V" eventType="touchUpInside" id="6uL-FA-TvG"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="peE-uH-3wh">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your envId" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="peE-uH-3wh">
                                                 <rect key="frame" x="125" y="111.5" width="220" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -986,7 +986,7 @@
                                                     <outlet property="delegate" destination="rjy-GE-W2V" id="I4e-i9-gQf"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xuI-zV-7Or">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your apiKey" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xuI-zV-7Or">
                                                 <rect key="frame" x="125" y="162.5" width="220" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -998,7 +998,7 @@
                                                     <outlet property="delegate" destination="rjy-GE-W2V" id="EZG-xl-lEo"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pGM-WH-hVY">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="visitorId" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pGM-WH-hVY">
                                                 <rect key="frame" x="125" y="315.5" width="220" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
