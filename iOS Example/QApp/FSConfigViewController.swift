@@ -111,6 +111,7 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
             
             DispatchQueue.main.async {
                 
+                /// Get the current context for you application
                 self.visitorCtxLabel?.text = String(format: "%@", Flagship.sharedInstance.getVisitorContext())
 
             }

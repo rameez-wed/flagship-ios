@@ -41,23 +41,23 @@
     
     [[Flagship sharedInstance] updateContext:@{@"Boolean_Key":@YES,@"String_Key":@"june",@"Number_Key":@200}];
     
-    [[Flagship sharedInstance] startFlagShipWithEnvironmentId:@"bkk9glocmjcg0vtmdlng" :NULL completionHandler:^( FlagshipResult result) {
-        
-        if (result == FlagshipResultReady){
-            
-               [self docMe];
-                dispatch_async(dispatch_get_main_queue(), ^{
-
-                     self.storeBtn.hidden = NO;
-
-                    // Get the title for VIP user
-                    NSString * title = [[Flagship sharedInstance] getModification:@"vipWording" defaultString:@"defaultTitle" activate:YES];
-
-                    // Get the percent sale for VIP user
-                    float percentSales = [[Flagship sharedInstance] getModification:@"percent" defaulfloat:10 activate:YES];
-            });
-        }
-    }];
+//    [[Flagship sharedInstance] startFlagShipWithEnvironmentId:@"bkk9glocmjcg0vtmdlng" :NULL completionHandler:^( FlagshipResult result) {
+//        
+//        if (result == FlagshipResultReady){
+//            
+//               [self docMe];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//
+//                     self.storeBtn.hidden = NO;
+//
+//                    // Get the title for VIP user
+//                    NSString * title = [[Flagship sharedInstance] getModification:@"vipWording" defaultString:@"defaultTitle" activate:YES];
+//
+//                    // Get the percent sale for VIP user
+//                    float percentSales = [[Flagship sharedInstance] getModification:@"percent" defaulfloat:10 activate:YES];
+//            });
+//        }
+//    }];
 
 }
 
@@ -170,6 +170,43 @@
     [[Flagship sharedInstance] sendPageEvent:eventPagev];
     
     [[Flagship sharedInstance] setEnableLogs:NO];
+    
+    
+    /// get the current context
+    NSDictionary* visitorContext = [[Flagship sharedInstance] getVisitorContext];
+
+    
+    [[Flagship sharedInstance] authenticateVisitorWithVisitorId:@"Alex" visitorContext:nil  sync:^(enum FlagshipResult result) {
+        
+        if( result == FlagshipResultUpdated){
+            
+            
+        }
+            
+    }];
+    
+    
+    /// unAuthenticate from logged-in to previous anonymous session 
+    [[Flagship sharedInstance] unAuthenticateVisitorWithVisitorContext:nil sync:^(enum FlagshipResult result) {
+        
+        if( result == FlagshipResultUpdated){
+            
+            
+        }
+            
+    }];
+    
+    
+    [[Flagship sharedInstance] authenticateVisitorWithVisitorId:@"Alex" visitorContext:nil  sync:^(enum FlagshipResult result) {
+        
+        if( result == FlagshipResultUpdated){
+            
+            
+        }
+            
+    }];
+ 
+   
     
 }
 

@@ -18,9 +18,9 @@ internal class FSContext{
     let contextQueue = DispatchQueue(label: "com.flagship.queue.context", attributes: .concurrent)
     
     // Dictionary that represent all keys value according to context users
-    private var _currentContext:Dictionary <String, Any>! // by Default the context is empty
+    private var _currentContext:Dictionary <String, Any> // by Default the context is empty
     
-    internal var currentContext:Dictionary <String, Any>!{
+    internal var currentContext:Dictionary <String, Any>{
         
           get {
               return contextQueue.sync {

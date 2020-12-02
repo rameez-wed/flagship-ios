@@ -14,10 +14,10 @@ extension Flagship{
     
     /// <#Description#>
     /// - Parameters:
-    ///   - newVisitorId: <#newVisitorId description#>
-    ///   - context: <#context description#>
-    ///   - onSynchronized: <#onSynchronized description#>
-    public func authenticateVisitor(newVisitorId:String, newContext:[String:Any]? = nil, onSynchronized:((FlagshipResult)->Void)? = nil){
+    ///   - visitorId: <#newVisitorId description#>
+    ///   - visitorContext: <#context description#>
+    ///   - sync: <#onSynchronized description#>
+   @objc public func authenticateVisitor(visitorId:String, visitorContext:[String:Any]? = nil, sync:((FlagshipResult)->Void)? = nil){
         
         if (sdkModeRunning == .BUCKETING){
             
@@ -30,13 +30,13 @@ extension Flagship{
             self.anonymousId = self.visitorId
         }
         
-        self.visitorId = newVisitorId
+        self.visitorId = visitorId
         
         ///set the new context if provided here
         /// if the context is nill ==> will no effect or erase the current context
-        self.context.setNewContext(newContext)
+        self.context.setNewContext(visitorContext)
         
-        if let aSync = onSynchronized {
+        if let aSync = sync {
             
             self.synchronizeModifications { (result) in
                 
@@ -50,7 +50,7 @@ extension Flagship{
     /// - Parameters:
     ///   - context: <#context description#>
     ///   - onSynchronized: <#onSynchronized description#>
-    public func unAuthenticateVisitor( newContext:[String:Any]? = nil, onSynchronized:((FlagshipResult)->Void)? = nil){
+    @objc public func unAuthenticateVisitor( visitorContext:[String:Any]? = nil, sync:((FlagshipResult)->Void)? = nil){
         
         if (sdkModeRunning == .BUCKETING){
             
@@ -63,9 +63,9 @@ extension Flagship{
         
         ///set the new context if provided here
         /// if the context is nill ==> will no effect or erase the current context
-        self.context.setNewContext(newContext)
+        self.context.setNewContext(visitorContext)
         
-        if let aSync = onSynchronized {
+        if let aSync = sync {
             
             self.synchronizeModifications { (result) in
                 
@@ -75,9 +75,9 @@ extension Flagship{
     }
     
     
-    /// <#Description#>
-    /// - Returns: <#description#>
-    public func getVisitorContext()->Dictionary<String, Any>{
+    /// Get the current context
+    /// - Returns: Dictionary of key value [String:Any]
+    @objc public func getVisitorContext()->Dictionary<String, Any>{
         
         self.context.currentContext
     }

@@ -30,7 +30,9 @@
     
     
     /// init config object
-    FSConfig * config = [[FSConfig alloc] init:FlagshipModeDECISION_API apiTimeout:0.2];
+    
+   
+    FSConfig * config = [[FSConfig alloc] init:FlagshipModeDECISION_API timeout:0.2  authenticated:YES];
     
     
     

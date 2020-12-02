@@ -97,7 +97,14 @@ class FSUserViewCtrl: UIViewController {
         
         if let userId = newVisitorField?.text{
             
-            Flagship.sharedInstance.authenticateVisitor(newVisitorId:userId) { (result) in
+            /// Authenticate
+            Flagship.sharedInstance.authenticateVisitor(visitorId:userId) { (result) in
+                
+                
+                if result == .Updated{
+                    
+                    /// Modifications are updated with success
+                }
                 
                 self.updateIds()
             }
@@ -111,6 +118,10 @@ class FSUserViewCtrl: UIViewController {
         
         Flagship.sharedInstance.unAuthenticateVisitor{ (result) in
             
+            if result == .Updated{
+                
+                /// Modifications updated
+            }
             self.updateIds()
         }
     }
