@@ -83,6 +83,7 @@
 		8B871F5C24A24EC5001DE9F8 /* FSAudienceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B871F4D24A24EC5001DE9F8 /* FSAudienceTest.swift */; };
 		8B871F5D24A24EC5001DE9F8 /* FSHitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B871F4E24A24EC5001DE9F8 /* FSHitTest.swift */; };
 		8B871F5E24A24EC5001DE9F8 /* FSOfflineTrackingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B871F4F24A24EC5001DE9F8 /* FSOfflineTrackingTest.swift */; };
+		8B900117257A72E100703DDB /* Flagship+Reconcilliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B900116257A72E000703DDB /* Flagship+Reconcilliation.swift */; };
 		8BBCAD1C23FAD0E200126600 /* FSBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCAD0D23FAA15200126600 /* FSBucket.swift */; };
 		8BBCAD1D23FAD0E200126600 /* FSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF02D7223C4CA24006D154E /* FSLogger.swift */; };
 		8BBCAD1E23FAD0E200126600 /* FSStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF02D7E23C4CA24006D154E /* FSStorage.swift */; };
@@ -188,6 +189,7 @@
 		8B871F4D24A24EC5001DE9F8 /* FSAudienceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSAudienceTest.swift; path = ../../Flagship/FlagShipTests/FSAudienceTest.swift; sourceTree = "<group>"; };
 		8B871F4E24A24EC5001DE9F8 /* FSHitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSHitTest.swift; path = ../../Flagship/FlagShipTests/FSHitTest.swift; sourceTree = "<group>"; };
 		8B871F4F24A24EC5001DE9F8 /* FSOfflineTrackingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSOfflineTrackingTest.swift; path = ../../Flagship/FlagShipTests/FSOfflineTrackingTest.swift; sourceTree = "<group>"; };
+		8B900116257A72E000703DDB /* Flagship+Reconcilliation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flagship+Reconcilliation.swift"; sourceTree = "<group>"; };
 		8BBCAD0723FAA14400126600 /* FSBucketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSBucketManager.swift; sourceTree = "<group>"; };
 		8BBCAD0823FAA14400126600 /* FSBucketService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSBucketService.swift; sourceTree = "<group>"; };
 		8BBCAD0D23FAA15200126600 /* FSBucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSBucket.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 		8BF02D6D23C4CA24006D154E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8B900116257A72E000703DDB /* Flagship+Reconcilliation.swift */,
 				8B6DF79324F41BA3004C177D /* FSConfig.swift */,
 				8B6DF79124F41B51004C177D /* Flagship+Config.swift */,
 				8BF02D6E23C4CA24006D154E /* Flagship.swift */,
@@ -772,6 +775,7 @@
 				8B6DF79224F41B5D004C177D /* Flagship+Config.swift in Sources */,
 				8BBCAD2E23FAD0E200126600 /* FSBucketService.swift in Sources */,
 				8B535FF4240D5599005A13CE /* PresetContext.swift in Sources */,
+				8B900117257A72E100703DDB /* Flagship+Reconcilliation.swift in Sources */,
 				8BBCAD2F23FAD0E200126600 /* FSCacheManager.swift in Sources */,
 				8BBCAD3023FAD0E200126600 /* FSConstant.swift in Sources */,
 				8BBCAD3123FAD0E200126600 /* FSTargets.swift in Sources */,

@@ -23,6 +23,8 @@ public let FS_TimeOutRequestApi = 2.0
     
     
     public var authenticated:Bool = false
+        
+
     
     
     
@@ -38,7 +40,15 @@ public let FS_TimeOutRequestApi = 2.0
         /// Set Mode
         self.mode = mode
         
-        /// Set Authenticated
-        self.authenticated = authenticated
+        if self.mode == .DECISION_API{
+            
+            /// Set Authenticated
+            self.authenticated = authenticated
+        }else{
+            
+            FSLogger.FSlog("authenticated is ignored in BUCKETING mode.", .Campaign)
+
+        }
+   
     }
 }

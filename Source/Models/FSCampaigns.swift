@@ -86,7 +86,7 @@ internal class FSCampaigns:Decodable{
             }
             if value.keys.contains(keyValue){
                                 
-                return ["campaignId" : item.idCampaign, "variationId": item.variation?.idVariation ?? "", "variationGroupId":item.variationGroupId ?? "", "isReference":item.variation?.reference ?? false ]
+                return ["campaignId" : item.idCampaign, "variationId": item.variation?.idVariation ?? "", "variationGroupId":item.variationGroupId ?? ""]
             }
         }
         return nil
@@ -147,8 +147,7 @@ internal class FSVariation:Decodable{
     public var idVariation:String = ""
     public var modifications:FSModifications?
     public var allocation:Int
-    public var reference:Bool = false
-    
+ 
     
     internal init(idVariation:String, _ modifications:FSModifications?) {
         
@@ -166,8 +165,7 @@ internal class FSVariation:Decodable{
         do{ self.idVariation             = try values.decode(String.self, forKey: .idVariation)} catch{ self.idVariation = ""}
         do{ self.modifications           = try values.decode(FSModifications.self, forKey: .modifications)} catch{ self.modifications = nil}
         do{ self.allocation              = try values.decode(Int.self, forKey: .allocation)} catch{ self.allocation = 0}
-        do{ self.reference               = try values.decode(Bool.self, forKey: .reference)} catch{ self.reference = false}
-
+ 
         
         
     }
@@ -178,8 +176,7 @@ internal class FSVariation:Decodable{
         case idVariation = "id"
         case modifications
         case allocation
-        case reference
-    }
+     }
     
 }
 

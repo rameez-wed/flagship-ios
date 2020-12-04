@@ -90,7 +90,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onCancel(){
         self.dismiss(animated: true , completion: nil)
         
-        Flagship.sharedInstance.unAuthenticateVisitor { (result) in
+        Flagship.sharedInstance.unAuthenticateVisitor() { (result) in
             
             
         }

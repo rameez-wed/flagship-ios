@@ -64,7 +64,7 @@ class FSLoginViewController: UIViewController, UITextFieldDelegate {
     /// On Click Login
     @IBAction func onClickLogin(){
         
-        Flagship.sharedInstance.authenticateVisitor(newVisitorId: self.loginTextField.text ?? "") { (result) in
+        Flagship.sharedInstance.authenticateVisitor(visitorId: self.loginTextField.text ?? "") { (result) in
             
             if result == .Updated {
                 

@@ -21,6 +21,7 @@ extension Flagship{
         
         if (sdkModeRunning == .BUCKETING){
             
+            FSLogger.FSlog("authenticateVisitor() is ignored in BUCKETING mode.", .Campaign)
             return
         }
         
@@ -54,6 +55,8 @@ extension Flagship{
         
         if (sdkModeRunning == .BUCKETING){
             
+            FSLogger.FSlog("unAuthenticateVisitor() is ignored in BUCKETING mode.", .Campaign)
+
             return
         }
         
