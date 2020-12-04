@@ -515,6 +515,18 @@ public class Flagship:NSObject{
         
         if self.campaigns != nil {
             
+           // return self.campaigns.getRelativekeyModificationInfos(key)
+        }
+        
+        FSLogger.FSlog(" Any campaign found, to get the information's modification key", .Campaign) /// See later for the logs
+        return nil
+    }
+    
+    @objc public func getModificationInfo(_ key:String) -> [String:Any]? {
+        
+        
+        if self.campaigns != nil {
+            
             return self.campaigns.getRelativekeyModificationInfos(key)
         }
         
