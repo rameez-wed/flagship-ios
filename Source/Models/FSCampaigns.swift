@@ -57,7 +57,7 @@ internal class FSCampaigns:Decodable{
     
     
     //// Get relative information tracking for Value
-    public func getRelativeInfoTrackForValue(_ keyValue:String)->[String:Any]?{
+    public func getRelativeInfoTrackForValue(_ keyValue:String)->[String:String]?{
         
         for item:FSCampaign in self.campaigns{
             
@@ -75,7 +75,7 @@ internal class FSCampaigns:Decodable{
     }
     
     //// Get relative information for modification key
-    internal func getRelativekeyModificationInfos(_ keyValue:String)->[String:Any]?{
+    internal func getRelativekeyModificationInfos(_ keyValue:String)->[String:String]?{
         
         for item:FSCampaign in self.campaigns{
             

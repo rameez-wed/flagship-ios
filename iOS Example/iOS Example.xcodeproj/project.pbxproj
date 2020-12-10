@@ -11,6 +11,7 @@
 		8B105980241BF0B800227F1E /* Flagship.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B10597E241BF0B800227F1E /* Flagship.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B90007E257015A800703DDB /* FSHitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90007D257015A800703DDB /* FSHitViewController.swift */; };
 		8B90008C2575298600703DDB /* FSCustomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90008B2575298600703DDB /* FSCustomTools.swift */; };
+		8B90016A2580D25800703DDB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B9001692580D25800703DDB /* Settings.bundle */; };
 		8BBCAD4123FAD12C00126600 /* Flagship.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBCAD4023FAD12C00126600 /* Flagship.framework */; };
 		8BBCAD4223FAD12C00126600 /* Flagship.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBCAD4023FAD12C00126600 /* Flagship.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BEF092E23C3902700396B78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF092D23C3902700396B78 /* AppDelegate.swift */; };
@@ -88,6 +89,7 @@
 		8B10597E241BF0B800227F1E /* Flagship.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Flagship.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B90007D257015A800703DDB /* FSHitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHitViewController.swift; sourceTree = "<group>"; };
 		8B90008B2575298600703DDB /* FSCustomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCustomTools.swift; sourceTree = "<group>"; };
+		8B9001692580D25800703DDB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8BBCAD4023FAD12C00126600 /* Flagship.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Flagship.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEF092A23C3902700396B78 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEF092D23C3902700396B78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				8BF2DE41256F996A005FF664 /* FSContextViewCtrl.swift */,
 				8B90007D257015A800703DDB /* FSHitViewController.swift */,
 				8B90008B2575298600703DDB /* FSCustomTools.swift */,
+				8B9001692580D25800703DDB /* Settings.bundle */,
 			);
 			path = QApp;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B90016A2580D25800703DDB /* Settings.bundle in Resources */,
 				8BF2DDED25681A9C005FF664 /* LaunchScreen.storyboard in Resources */,
 				8BF2DDEA25681A9C005FF664 /* Assets.xcassets in Resources */,
 				8BF2DDE825681A97005FF664 /* Main.storyboard in Resources */,
@@ -684,8 +688,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5RY8QCBAEP;
 				INFOPLIST_FILE = QApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -707,8 +712,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5RY8QCBAEP;
 				INFOPLIST_FILE = QApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -719,6 +725,7 @@
 				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ABTasty.topChef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "TopChef Prod";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

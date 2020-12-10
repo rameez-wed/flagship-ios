@@ -43,8 +43,8 @@ class FSConfigViewController: UIViewController, UITextFieldDelegate {
         
         // set envid
         
-        self.envIdTextField?.text = "bkk9glocmjcg0vtmdlng"
-        self.apiKetTextField?.text = "j2jL0rzlgVaODLw2Cl4JC3f4MflKrMgIaQOENv36"
+        self.envIdTextField?.text = UserDefaults.standard.value(forKey: "idKey") as? String ?? ""
+        self.apiKetTextField?.text = UserDefaults.standard.value(forKey: "idApiKey") as? String ?? ""
         self.visitorIdTextField?.text = nil
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard)))
         self.visitorCtxLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showEditContext)))
