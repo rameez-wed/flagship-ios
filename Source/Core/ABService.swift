@@ -96,8 +96,6 @@ internal class ABService {
                 
                 /// Add x-api-key
                 request.addValue(apiKey, forHTTPHeaderField: FSX_Api_Key)
-               // let session = URLSession(configuration:URLSessionConfiguration.default)
-                
                 sessionService.dataTask(with: request) { (responseData, response, error) in
                     
                     if (error == nil){
@@ -188,9 +186,6 @@ internal class ABService {
                 var request:URLRequest = URLRequest(url:activateUrl)
                 request.httpMethod = "POST"
                 request.httpBody = data
-                
-                /// Add x-api-key
-                request.addValue(apiKey, forHTTPHeaderField: FSX_Api_Key)
                 
                 //let session = URLSession(configuration:URLSessionConfiguration.default)
                 sessionService.dataTask(with: request) { (responseData, response, error) in

@@ -117,10 +117,6 @@ internal extension ABService {
                 uploadKeyValueCtxRqst.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                 uploadKeyValueCtxRqst.addValue("application/json", forHTTPHeaderField: "Accept")
                 
-                /// Add x-api-key
-                uploadKeyValueCtxRqst.addValue(apiKey, forHTTPHeaderField: FSX_Api_Key)
-                
-                
                 let session = URLSession(configuration:URLSessionConfiguration.default)
                 
                 session.dataTask(with: uploadKeyValueCtxRqst) { (responseData, response, error) in
