@@ -59,7 +59,7 @@ class FSHomeViewController: UIViewController {
         let actionEvent:FSEvent = FSEvent(eventCategory: FSCategoryEvent.Action_Tracking, eventAction: "cta_Bucketing")
         actionEvent.label = "cta_Bucketing_label"
         actionEvent.eventValue = 1
-        actionEvent.interfaceName = "HomeScreen"
+        actionEvent.screenName = "HomeScreen"
         // Send Event Tracking
         Flagship.sharedInstance.sendHit(actionEvent)
         

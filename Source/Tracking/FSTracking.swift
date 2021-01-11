@@ -10,7 +10,7 @@ import Foundation
  /// :nodoc:
 @objc public enum FSTypeTrack:NSInteger {
     
-    case PAGE        = 0
+    case SCREEN        = 0
     case TRANSACTION
     case ITEM
     case EVENT
@@ -19,7 +19,7 @@ import Foundation
     public var typeString:String{
 
         switch self {
-        case .PAGE:
+        case .SCREEN:
             return "SCREENVIEW"
         case .TRANSACTION:
             return "TRANSACTION"
@@ -104,7 +104,7 @@ import Foundation
     
     // Optional
     /// Interface Name
-    public var interfaceName:String?
+    public var screenName:String?
     
     /// User Ip
     public var userIp:String?
@@ -184,8 +184,8 @@ import Foundation
             }
             
             // Interface Name
-            if (self.interfaceName != nil) {
-                communParams.updateValue(self.interfaceName ?? "", forKey: "dl")
+            if (self.screenName != nil) {
+                communParams.updateValue(self.screenName ?? "", forKey: "pt")
             }
             
             return communParams

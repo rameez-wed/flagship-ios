@@ -12,8 +12,8 @@ import Foundation
 /**
  This hit should be sent each time a visitor arrives on a new interface.
  */
+@available(iOS, introduced: 1.0, deprecated: 2.0.3, message: "FSScreen")
 @objcMembers public class FSPage:FSTracking{
-    
     
     /**
      Init Page hit
@@ -26,8 +26,8 @@ import Foundation
     @objc public init(_ interfaceName:String) {
         
         super.init()
-        self.type = .PAGE
-        self.interfaceName = interfaceName
+        self.type = .SCREEN
+        self.screenName = interfaceName
     }
     
     
@@ -48,8 +48,51 @@ import Foundation
     }
 }
 
-/**
 
+/**
+ This hit should be sent each time a visitor arrives on a new screen.
+ */
+@objcMembers public class FSScreen:FSTracking{
+    
+    /**
+     Init Page hit
+     
+     @param interfaceName String
+          
+     @return instance object
+     */
+    
+    @objc public init(_ interfaceName:String) {
+        
+        super.init()
+        self.type = .SCREEN
+        self.screenName = interfaceName
+    }
+    
+    
+    /// :nodoc:
+    public  override var bodyTrack: Dictionary<String, Any>{
+        
+        get {
+            
+            var customParams:Dictionary<String,Any> = Dictionary<String,Any>()
+            
+            // Set Type
+            customParams.updateValue(self.type.typeString, forKey: "t")
+            
+            customParams.merge(self.communBodyTrack){  (_, new) in new }
+            return customParams
+        }
+        
+    }
+}
+
+
+
+
+
+
+/**
  Represent a hit Transaction
  */
 

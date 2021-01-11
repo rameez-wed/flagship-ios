@@ -110,7 +110,7 @@ class FSHitTest: XCTestCase {
         tr.sessionNumber = 12
         tr.dataSource = "app"
         tr.fsUserId = "userId"
-        tr.interfaceName = "iName"
+        tr.screenName = "iName"
         tr.sessionEventNumber = 13
         tr.currentSessionTimeStamp = 1111
         tr.customVisitorId = "custom"
@@ -222,7 +222,7 @@ class FSHitTest: XCTestCase {
         
         let itemPage = FSPage("pageTest")
         let dico = itemPage.bodyTrack
-        XCTAssertTrue(dico["t"]    as? String == FSTypeTrack.PAGE.typeString)
+        XCTAssertTrue(dico["t"]    as? String == FSTypeTrack.SCREEN.typeString)
         XCTAssertTrue(dico["dl"]    as? String == "pageTest")
     }
 }
