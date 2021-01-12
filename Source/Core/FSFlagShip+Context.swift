@@ -181,11 +181,9 @@ extension Flagship{
         
     }
     
-    
-    /// Send the keys/values context
-    DispatchQueue(label: "flagship.contextKey.queue").async {
+    @objc func getVisitorContext()->[String:Any]{
         
-        self.service?.sendkeyValueContext(self.context.currentContext)
+        return self.context.currentContext ?? [:]
     }
     
 }
