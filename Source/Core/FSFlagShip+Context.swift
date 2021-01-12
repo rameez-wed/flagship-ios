@@ -181,4 +181,11 @@ extension Flagship{
         
     }
     
+    
+    /// Send the keys/values context
+    DispatchQueue(label: "flagship.contextKey.queue").async {
+        
+        self.service?.sendkeyValueContext(self.context.currentContext)
+    }
+    
 }
