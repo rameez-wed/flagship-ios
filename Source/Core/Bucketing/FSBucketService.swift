@@ -114,7 +114,6 @@ internal extension ABService {
                 
                 uploadKeyValueCtxRqst.httpMethod = "POST"
                 uploadKeyValueCtxRqst.httpBody = data
-                uploadKeyValueCtxRqst.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                 uploadKeyValueCtxRqst.addValue("application/json", forHTTPHeaderField: "Accept")
                 
                 let session = URLSession(configuration:URLSessionConfiguration.default)

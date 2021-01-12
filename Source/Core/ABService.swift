@@ -91,7 +91,6 @@ internal class ABService {
                 var request:URLRequest = URLRequest(url:getUrl, timeoutInterval: timeOutServiceForRequestApi)  //// Request with time interval
                 request.httpMethod = "POST"
                 request.httpBody = data
-                request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                 request.addValue("application/json", forHTTPHeaderField: "Accept")
                 
                 /// Add x-api-key
