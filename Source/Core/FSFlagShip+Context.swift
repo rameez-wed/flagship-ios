@@ -181,7 +181,7 @@ extension Flagship{
         
     }
     
-    @objc func getVisitorContext()->[String:Any]{
+    @objc public func getVisitorContext()->[String:Any]{
         
         return self.context.currentContext ?? [:]
     }
